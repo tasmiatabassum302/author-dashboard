@@ -1,7 +1,8 @@
 body {
-  margin: 0;
+  margin: 0; 
+  padding: 0;           
   font-family: Arial, sans-serif;
-  background-color: beige;   
+  background-color: rgb(248, 248, 246);   
   background-image: url("https://www.transparenttextures.com/patterns/dust.png");
   background-repeat: repeat;
 }
@@ -9,16 +10,44 @@ body {
 .container {
   display: flex;
   height: 100vh;
+  width: 100%;
+  margin: 0;  
+  padding: 0;  
 }
 
 .sidebar {
   background-color: #1e293b;
-  padding: 16px;
+  padding: 16px;   
   height: 100vh;
   color: #f1f5f9;
   width: 220px; 
+  transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
+  margin: 0;       
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.sidebar-toggle {
+  background-color: #334155;
+  color: #f1f5f9;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sidebar-toggle:hover {
+  background-color: #475569;
 }
 
 .sidebar-profile-container {
@@ -60,11 +89,18 @@ body {
   gap: 8px;
   padding: 6px 10px;
   border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .sidebar ul li a:hover {
-  background-color: #334155;
-  color: #3b82f6;
+  background-color: #475569;
+  color: #ffffff;
+}
+
+.sidebar ul li a.active-link {
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .sidebar ul li a svg {
@@ -72,42 +108,173 @@ body {
   flex-shrink: 0;
 }
 
+.sidebar.collapsed ul li a span,
+.sidebar.collapsed .sidebar-username,
+.sidebar.collapsed .sidebar-profile-container {
+  display: none;
+}
+
 .content {
-  flex: 1;
+  flex: 1;               
+  display: flex;         
+  justify-content: flex-start;  
+  align-items: flex-start;      
   padding: 20px;
 }
 
-.profile-page {
-  padding: 20px;
+.content.profile-page {
+  justify-content: center;
+  align-items: center;
 }
 
-.profile-title {
-  font-size: 28px;
-  font-weight: bold;
-  color: #1e293b;
-  margin-bottom: 20px;
+.profile {
+  display: flex;
+  justify-content: center;   
+  align-items: center;       
+  height: 100vh;             
+  padding: 20px;
+  flex: 1;                 
+}
+
+.profile h1 {
+  margin-bottom: 1.5rem;
 }
 
 .profile-card {
-  display: flex;
-  align-items: center; 
-  gap: 20px;
-  padding: 20px;
-  background: #fff;
+  background: linear-gradient(145deg, #ffffff, #e2e8f0);
+  padding: 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
-.profile-pic {
-  width: 150px;
-  height: 150px;
+.profile-card img {
   border-radius: 50%;
-  object-fit: cover;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  width: 120px;
+  height: 120px;
 }
 
-.profile-details {
+.profile-card p {
+  font-size: 1rem;
+  margin: 0.7rem 0;
+  line-height: 1.6;
+}
+
+.articles-page {
+  flex: 1;
+  padding: 30px;
   display: flex;
   flex-direction: column;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.articles-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.table-container th,
+.table-container td {
+  border-bottom: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;   
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  vertical-align: middle;  
+}
+
+.table-container th:last-child,
+.table-container td:last-child {
+  border-right: none; 
+}
+
+.table-container th {
+  background-color: #f9fafb;
+  color: #374151;
+  font-weight: 600;
+  text-align: left;
+}
+
+
+.table-container th:nth-child(2),
+.table-container td:nth-child(2) {
+  text-align: center;
+  width: 180px; 
+}
+
+.status-cell {
+  text-align: center;     
+  vertical-align: middle; 
+  width: 120px;
+  height: 100%;             
+}
+
+.status-cell .badge {
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  display: inline-flex;      
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;  
+  line-height: 1.2;        
+}
+
+.edited-cell {
+  text-align: center;
+  width: 150px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
   gap: 8px;
 }
 
+.pagination button {
+  border: 1px solid #d1d5db;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.pagination button.active {
+  background-color: #3b82f6;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
