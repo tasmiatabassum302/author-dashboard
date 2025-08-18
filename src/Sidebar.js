@@ -6,7 +6,7 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebar-profile-container">
-        {/* Make sure profile.jpg exists inside public/ folder */}
+        
         <img src="/profile.jpg" alt="profile" className="sidebar-profile" />
         <span className="sidebar-username">Tasmia</span>
       </div>

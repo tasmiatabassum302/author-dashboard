@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from "./Sidebar";
+import Profile from "./Profile"; 
 import "./index.css";
 
 function App() {
@@ -8,9 +9,8 @@ function App() {
       <div className="container">
         <Sidebar />
         <div className="content">
-          {/* Routes for Sidebar links */}
           <Routes>
-            <Route path="/profile" element={<h2>Profile Page</h2>} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/articles" element={<h2>My Articles Page</h2>} />
           </Routes>
         </div>
@@ -20,3 +20,4 @@ function App() {
 }
 
 export default App;
+
