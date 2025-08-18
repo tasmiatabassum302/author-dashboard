@@ -2,8 +2,7 @@ body {
   margin: 0; 
   padding: 0;           
   font-family: Arial, sans-serif;
-  background-color: rgb(248, 248, 246);   
-  background-image: url("https://www.transparenttextures.com/patterns/dust.png");
+  background-color: rgb(238, 238, 232);   
   background-repeat: repeat;
 }
 
@@ -41,13 +40,18 @@ body {
   background-color: #334155;
   color: #f1f5f9;
   border: none;
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px;
+  border-radius: 8px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .sidebar-toggle:hover {
   background-color: #475569;
+  transform: scale(1.05);
 }
 
 .sidebar-profile-container {
@@ -55,6 +59,7 @@ body {
   align-items: center;
   gap: 10px;
   margin-bottom: 16px;
+  transition: opacity 0.3s;
 }
 
 .sidebar-profile {
@@ -108,10 +113,14 @@ body {
   flex-shrink: 0;
 }
 
+
 .sidebar.collapsed ul li a span,
-.sidebar.collapsed .sidebar-username,
-.sidebar.collapsed .sidebar-profile-container {
+.sidebar.collapsed .sidebar-username {
   display: none;
+}
+
+.sidebar.collapsed .sidebar-profile-container {
+  justify-content: center;
 }
 
 .content {

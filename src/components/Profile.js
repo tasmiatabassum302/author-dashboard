@@ -6,10 +6,7 @@ export default function Profile() {
       <h1 className="profile-title">Profile</h1>
       <div className="profile-card">
         <img 
-          src="/profile.jpg" 
-          alt="Profile" 
-          className="profile-pic" 
-        />
+          src="/profile.jpg" alt="Profile" className="profile-pic" />
         <div className="profile-details">
           <p><b>Full Name:</b> Tasmia</p>
           <p><b>Username:</b> @tasmia302</p>

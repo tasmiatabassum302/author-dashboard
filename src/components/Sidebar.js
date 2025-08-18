@@ -1,17 +1,31 @@
 import { Link, useLocation } from "react-router-dom";
-import { FaUser, FaRegFileAlt } from "react-icons/fa";
+import { FaUser, FaRegFileAlt, FaBars } from "react-icons/fa";
+import { useState } from "react";
 import "../index.css";
 
 export default function Sidebar() {
-  const location = useLocation(); 
+  const location = useLocation();
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+     
+      <div className="sidebar-header">
+        <button
+          className="sidebar-toggle"
+          onClick={() => setCollapsed(!collapsed)}
+        >
+          <FaBars size={18} />
+        </button>
+      </div>
+
+      
       <div className="sidebar-profile-container">
         <img src="/profile.jpg" alt="profile" className="sidebar-profile" />
         <span className="sidebar-username">Tasmia</span>
       </div>
 
+      
       <ul>
         <li>
           <Link
