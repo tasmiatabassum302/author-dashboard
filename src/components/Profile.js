@@ -8,7 +8,7 @@ export default function Profile() {
         <img 
           src="/profile.jpg" alt="Profile" className="profile-pic" />
         <div className="profile-details">
-          <p><b>Full Name:</b> Tasmia</p>
+          <p><b>Full Name:</b> Tasmia Tabassum</p>
           <p><b>Username:</b> @tasmia302</p>
           <p>
             <b>Bio:</b> Passionate writer who loves sharing ideas about 

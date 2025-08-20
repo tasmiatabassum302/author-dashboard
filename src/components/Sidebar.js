@@ -22,7 +22,7 @@ export default function Sidebar() {
       
       <div className="sidebar-profile-container">
         <img src="/profile.jpg" alt="profile" className="sidebar-profile" />
-        <span className="sidebar-username">Tasmia</span>
+        <span className="sidebar-username">Tasmia Tabassum</span>
       </div>
 
       
